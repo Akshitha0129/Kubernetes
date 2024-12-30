@@ -1,0 +1,85 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. Control Plane Components
+The Control Plane is the central management entity in Kubernetes. It ensures that the cluster operates as desired by managing workloads, networking, and interactions with the cloud provider.
+
+a. kube-apiserver
+The entry point to the Kubernetes control plane.
+Exposes the Kubernetes API, which all other components and external clients interact with.
+Acts as the primary interface for resource management and communication within the cluster.
+
+b. etcd
+A highly available, distributed key-value store.
+Persists the cluster's state and configuration data, such as pod definitions, service information, and node statuses.
+Ensures consistent state across the cluster.
+
+c. kube-scheduler
+Responsible for assigning pods to nodes based on resource requirements, affinity/anti-affinity rules, and availability.
+Considers factors such as CPU, memory, and custom policies to make scheduling decisions.
+
+d. kube-controller-manager
+Combines multiple controllers into a single binary (e.g., Node Controller, Replication Controller, and Endpoint Controller).
+Monitors the cluster state and ensures that the desired state matches the actual state.
+
+e. cloud-controller-manager
+Manages cloud-specific functionality, enabling Kubernetes to integrate with cloud providers.
+Handles:
+Node lifecycle management.
+Load balancer provisioning.
+Persistent storage integration.
+Route configuration.
+
+2. Worker Node Components
+Worker nodes are where workloads (applications) run. Each node has the necessary components to manage, monitor, and run pods.
+
+a. kubelet
+A Kubernetes agent running on every node.
+Responsible for ensuring that the containers defined in pod specifications are running and healthy.
+Communicates with the kube-apiserver to receive instructions and send updates.
+
+b. kube-proxy
+Manages network rules for the node.
+Implements Kubernetes networking to route traffic between services, pods, and external clients.
+Maintains load balancing across pods in a service.
+
+c. Pods
+The smallest deployable unit in Kubernetes, consisting of one or more containers.
+Containers within a pod share the same storage and network namespace.
+Each pod is scheduled on a node by the control plane.
+
+3. Cloud Provider API
+An interface for Kubernetes to interact with the underlying cloud infrastructure.
+Used by the cloud-controller-manager to provision resources such as virtual machines, load balancers, and storage volumes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ChatGPT can make mistakes. Check important info.
